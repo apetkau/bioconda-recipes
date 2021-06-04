@@ -1,0 +1,122 @@
+{% set name = "genomics-data-index" %}
+{% set version = "0.1.0" %}
+
+package:
+  name: "{{ name|lower }}"
+  version: "{{ version }}"
+
+source:
+  url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
+  sha256: f53069ee3b890ece82e8f963699c547b5a846927437c6ee7fab1edb7bd877228
+
+build:
+  number: 0
+  entry_points:
+    - gdi=genomics_data_index.cli.gdi:main
+  script: "{{ PYTHON }} -m pip install . -vv"
+
+requirements:
+  host:
+    - biocommons.seqrepo
+    - biopython >=1.70
+    - click
+    - click-config-file
+    - coloredlogs
+    - ete3
+    - ga4gh.vrs[extras] ==0.6.2
+    - jsonschema ==3.2.0
+    - numpy
+    - pandas >=1.0.0
+    - pip
+    - pybedtools
+    - pymysql
+    - pyqt5
+    - pyroaring
+    - pytest
+    - python
+    - pyvcf
+    - pyyaml
+    - requests
+    - scikit-bio
+    - snakemake
+    - sourmash
+    - sqlalchemy
+  run:
+    - biocommons.seqrepo
+    - biopython >=1.70
+    - click
+    - click-config-file
+    - coloredlogs
+    - ete3
+    - ga4gh.vrs[extras] ==0.6.2
+    - jsonschema ==3.2.0
+    - numpy
+    - pandas >=1.0.0
+    - pybedtools
+    - pymysql
+    - pyqt5
+    - pyroaring
+    - pytest
+    - python
+    - pyvcf
+    - pyyaml
+    - requests
+    - scikit-bio
+    - snakemake
+    - sourmash
+    - sqlalchemy
+
+test:
+  imports:
+    - genomics_data_index
+    - genomics_data_index.api
+    - genomics_data_index.api.query
+    - genomics_data_index.api.query.impl
+    - genomics_data_index.api.query.impl.cluster
+    - genomics_data_index.api.viewer
+    - genomics_data_index.api.viewer.samples_visuals
+    - genomics_data_index.cli
+    - genomics_data_index.configuration
+    - genomics_data_index.configuration.connector
+    - genomics_data_index.pipelines
+    - genomics_data_index.storage
+    - genomics_data_index.storage.index
+    - genomics_data_index.storage.io
+    - genomics_data_index.storage.io.mlst
+    - genomics_data_index.storage.io.mutation
+    - genomics_data_index.storage.io.processor
+    - genomics_data_index.storage.model
+    - genomics_data_index.storage.model.db
+    - genomics_data_index.storage.service
+    - genomics_data_index.storage.util
+    - genomics_data_index.test
+    - genomics_data_index.test.integration
+    - genomics_data_index.test.integration.api
+    - genomics_data_index.test.integration.api.query
+    - genomics_data_index.test.integration.configuration
+    - genomics_data_index.test.integration.configuration.connector
+    - genomics_data_index.test.integration.pipelines
+    - genomics_data_index.test.integration.storage
+    - genomics_data_index.test.integration.storage.index
+    - genomics_data_index.test.integration.storage.io
+    - genomics_data_index.test.integration.storage.service
+    - genomics_data_index.test.unit
+    - genomics_data_index.test.unit.variant
+    - genomics_data_index.test.unit.variant.io
+    - genomics_data_index.test.unit.variant.model
+    - genomics_data_index.test.unit.variant.model.db
+  commands:
+    - gdi --help
+
+about:
+  home: "https://github.com/apetkau/genomics-data-index"
+  license: Apache Software
+  license_family: APACHE
+  license_file: 
+  summary: "Indexes genomics data (mutations, kmers, MLST) for fast querying of features."
+  doc_url: 
+  dev_url: 
+
+extra:
+  recipe-maintainers:
+    - your-github-id-here
