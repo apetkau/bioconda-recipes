@@ -65,6 +65,12 @@ requirements:
     - snakemake
     - sourmash
     - sqlalchemy
+    - pyqt
+    - bedtools
+    - fasttree
+    - iqtree
+    - bcftools
+    - htslib
 
 test:
   imports:
@@ -114,9 +120,9 @@ about:
   license_family: APACHE
   license_file: 
   summary: "Indexes genomics data (mutations, kmers, MLST) for fast querying of features."
-  doc_url: 
-  dev_url: 
+  doc_url: "https://github.com/apetkau/genomics-data-index"
+  dev_url: "https://github.com/apetkau/genomics-data-index"
 
 extra:
   recipe-maintainers:
-    - your-github-id-here
+    - apetkau
