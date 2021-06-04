@@ -14,10 +14,10 @@ build:
   entry_points:
     - gdi=genomics_data_index.cli.gdi:main
   script: "{{ PYTHON }} -m pip install . -vv"
+  noarch: python
 
 requirements:
   host:
-    - python >=3.7,<3.9
     - biocommons.seqrepo
     - biopython >=1.70
     - click
@@ -34,7 +34,7 @@ requirements:
     - pyqt5
     - pyroaring
     - pytest
-    - python
+    - python >=3.7,<3.9
     - pyvcf
     - pyyaml
     - requests
@@ -58,7 +58,7 @@ requirements:
     - pyqt5
     - pyroaring
     - pytest
-    - python
+    - python >=3.7,<3.9
     - pyvcf
     - pyyaml
     - requests
